@@ -12,3 +12,4 @@ var drawBackGround = function (src) {
         }
     }
 }
+// End of game
