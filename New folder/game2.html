@@ -1,0 +1,45 @@
+<!DOCTYPE>
+<html>
+    <head> <title>Game</title> </head>
+    <style>
+        canvas { display: block; margin: 0 auto; position: absolute; }
+    </style>
+    <body>
+        <canvas id="myCanvas" width="1300px" height="560px" style="z-index: 10;"></canvas>
+        <embed loop="true" src="1.mp3" hidden="true" ></embed> <!-- for IE-->
+        <bgsound  loop="infinite" src="1.mp3"></bgsound>
+    
+        <script >
+
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+
+            function drawBackGround() 
+            {
+            var background=new Image();
+            background.src='cartoon.jpg';;
+            ctx.beginPath();
+            ctx.drawImage(background,0,0,canvas.width,canvas.height);
+            ctx.closePath();
+        }
+
+        function drawBackGround2() {
+            var back=new Image();
+            back.src='902.png';;
+            ctx.beginPath();
+        
+            ctx.drawImage(back,400,canvas.height-400,400,250);
+        
+            ctx.closePath();
+        }
+
+        function draw()
+        {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            drawBackGround();
+            drawBackGround2();
+        }
+        setInterval(draw,5);
+        </script>
+    </body> 
+</html>

@@ -1,0 +1,71 @@
+html, body {
+    margin: 0; padding: 0;
+    /*background:  #535ffb;*/
+    
+
+  }
+
+ 
+
+  #container {
+
+    background: #535ffb url(../img/back1.jpg) repeat 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0; right: 0; bottom: 0; left: 0;
+    min-width: fit-content;
+    min-height: 515px;
+    margin: 0 auto;
+    padding-top: 120px; 
+    -webkit-animation: slide 20s linear infinite; 
+  }
+  
+  .hero-bkg-animated h1 {
+    font-family: sans-serif;
+  }
+  
+  #img
+  {
+    -ms-transform: rotate(20deg); /* IE 9 */
+    -webkit-transform: rotate(20deg); /* Safari 3-8 */
+    transform: rotate(-20deg);
+    padding-left: 200px;
+    padding-top: 50px;
+    float: left;
+    margin-top: 10px;
+  }
+  #imgHow
+  {
+    transform: rotate(20deg);
+    padding-left: 90px;
+    padding-top: 10px;
+  }
+
+  #about
+  {
+      position: absolute;
+      border: 0px;
+      border-radius: 10px;
+      font-family: fantasy;
+      font-size: 30px;
+      color: darkcyan;
+      background-color: orange;
+      width: 200px;
+      height: 40px;
+      margin-top: 430px;
+
+  }
+  #sound
+  {
+      
+    background: url(img/on.png) repeat 0 0;
+    background-size: 50px 50px;
+    background-repeat: no-repeat; 
+    border: 0px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    margin-left: -1060px;
+    margin-top: -90px;
+  }
+  

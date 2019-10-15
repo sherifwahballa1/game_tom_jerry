@@ -1,0 +1,93 @@
+ <!DOCTYPE html5>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tom & Jerry Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleC.css">
+</head>
+<style>
+#backHelp:hover , #start:hover,#help:hover, #about:hover
+  {
+    cursor: pointer;
+  }
+</style>
+
+<body>
+        
+
+    <div id="container" style="display: block;" >
+
+        <a onclick="character_page()" id="start"><img src="img/start.png" alt="" width="400px" height="200px" id="img" class="shake2"></a>
+        <a href="#" onclick="help_page()" id="help"><img src="img/how.png" alt="" width="400px" height="200px" id="imgHow" class="shake3"></a>
+        <a href="about.html"><input type="button" value="About" id="about" ></a>
+    </div>
+
+    <div id="main" style="display: none;">
+
+            <div id="divJerry">
+                    <a  href="gamee.html?ch=jerry" ><img src="img/jerry.png" alt="" width="350px" height="350px" id="jerry" style="margin-left: -100px;">
+                    <br>
+                    <img src="img/jerryw.png" alt="" width="300px" height="150px" id="imgHow" style="padding-top:80px ; margin-left:-90px" 
+                    class="shake">
+                      </a>
+                    
+                    <!-- <input type="button" id="sound" onclick="muteS()"> -->
+             </div>
+
+            <div id="divTom">
+                    <a href="gamee.html?ch=tom&" onclick="jerry()" ><img src="img/tom1.png" alt="" width="350px" height="350px" id="tom">
+                    <br>
+                    <img src="img/tomw.png" alt="" width="300px" height="150px" id="imgHow" style="padding-top:80px; margin-left: -88px;" 
+                    class="shake"></a>
+                    
+                    <!-- <input type="button" id="sound" onclick="muteS()"> -->
+            </div>
+
+
+        <div id="divSpike">
+            <a href="gamee.html?ch=spike" onclick="jerry()" ><img src="img/spike.png" alt="" width="350px" height="350px" id="spike">
+            <br>
+            <img src="img/spikew.png" alt="" width="300px" height="150px" id="imgHow" style="padding-top:80px ;" class="shake"></a>
+            
+            <!-- <input type="button" id="sound" onclick="muteS()"> -->
+        </div>
+        <img id="backStart" onclick="backStart2()" src="img/61022.png" width="100px" style="position: relative; margin-top: -290px; margin-left: -78px;" />
+        
+    </div>
+
+
+    <div id="container1">
+        <img src="img/keyboard.png" alt="key" width="800px" style="margin-left:90px;" >
+        <img id="backHelp" onclick="backStart()" src="img/61022.png" width="100px" style="    position: absolute;
+        top: 126px;
+        left: 5px;" />
+        
+    </div>
+
+    <div id="con" style="display: none;">
+        <p>
+            Level 1 try to collect 30 or more piece of cheese in 30 seconds
+        </p>
+        <p>
+            Level 2 try to collect 30 or more piece of cheese in 20 seconds
+
+        </p>
+        <p>
+            Level 3 try to collect 30 or more piece of cheese in 10 seconds
+
+        </p>
+    </div>
+    <div id="con2" style="display: none;">
+        <p>Note that Take a cheese <img src="img/cheese.png" alt="" width="50px"> increase your score by 1 and when you hit the stone <img src="img/stone.png" alt="" width="50px"> your score is decreased by 1 and if you hit the car <img src="img/car.png" alt="" width="60px"> you will lose the game.</p>
+    </div>
+
+
+    <audio id="audio" src="Songs/Tune.mp3" ></audio>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<html>
+    <head> <title>Game</title> </head>
+    <style>
+    div
+    {
+        background: gray url(img/cartoon.jpg) repeat 0 0;
+             background-repeat: no-repeat;
+            background-size: cover;
+            top: 0; right: 0; bottom: 0; left: 0;
+            min-width: fit-content;
+            min-height: 515px;
+            margin: 0 auto;
+          padding-top: 120px; 
+            -webkit-animation: slide 20s linear infinite; 
+    }
+
+        #pp
+        {
+            font-size: 55px;
+            font-weight: bold;
+            font-family: Shermlock;
+            margin-left: 356px;
+            background: yellow;
+            margin-top:-40px;
+            width: 587px;
+            padding-left: 10px;
+            border-radius: 40px;
+            text-align: center;
+        }
+    </style>
+    <body>
+
+        <div>
+                <p id="pp">Game Over <br /> Click Enter To Start</p>
+                <img src="img/902.png" width="450px" height="270px" style="margin-left: 400px;"/>
+            </div>
+    
+        
+
+        <script >
+
+            document.addEventListener("keyup", keyDownHandler, false);
+
+            function keyDownHandler(e) 
+            {
+                if(e.keyCode === '13' || e.key==='Enter'){
+                   window.location.href="gamee.html";
+                   
+                }
+            }
+
+        </script>
+    </body> 
+</html>

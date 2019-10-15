@@ -1,0 +1,32 @@
+var character = new Image();
+character.src = "./characters.png";
+var spriteWidth = 324;
+var spriteHeight = 63;
+var rows = 1;
+var cols = 8;
+var ex_Width = spriteWidth / cols;
+var ex_Height = spriteHeight / rows;
+var curFrame = 0;
+var frameCount = 8;
+//x and y coordinates of the canvas to get the single frame 
+var srcX = 0;
+var srcY = 0;
+var speed = 12;
+
+
+
+function updateFrame() {
+    curFrame = ++curFrame % frameCount;
+    srcX = curFrame * ex_Width;
+    srcY = 0;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawCharacter() {
+    updateFrame();
+    //Drawing the image 
+    ctx.drawImage(character, srcX, srcY, ex_Width, ex_Height, x, y-50, ex_Width, ex_Height);
+}
+
+setInterval(drawCharacter, 80);

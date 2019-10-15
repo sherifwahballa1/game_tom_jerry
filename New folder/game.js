@@ -1,0 +1,236 @@
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+var canvas2=document.getElementById("myCanvas2");
+var ctx2=canvas2.getContext("2d");
+
+var bb=new Image();
+bb.src='cartoon.jpg';
+
+var x = canvas.width;
+var y = canvas.height;
+var x2=canvas.width;
+var y2=canvas.height;
+var xcoorBackground=0;
+var spacePressed=false;
+var xCharacter=75;
+var yCharacter=y-200;
+var score = 0;
+var tomX=0;
+var tomY=y-100;
+var m=0;
+
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+
+
+var coordinateCheese =[[200,160],[330,220],[400,100],[410,300],[500,200],
+[600,140],[700,240],[800,280],[910,90],
+[900,180],[1000,300],[1070,150],[1160,270],[1200,330],
+[1250,130],[1300,190],[1340,330],[1400,100],[1450,400],
+[1500,190],[1540,240],[1600,140],[1670,380],[1700,420],
+[1750,160],[1800,270],[1850,300],[1900,100],[1930,180],
+[1990,240],[2030,130],[2080,380],[2110,160],[2160,220],[2190,100],
+[2220,300],[2260,200],[2300,140],[2320,240],[2380,280],[2410,90],
+[2450,180],[2500,300],[2520,150],[2570,270],[2590,330]];
+//var yCoordinateCheese =[150,220,100,200,150,240,290,180,300];
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+
+function keyDownHandler(e) {
+    if(e.key === ' ' || e.key === 'Spacebar') {
+        spacePressed = true;
+    }
+}
+
+function keyUpHandler(e) {
+    if(e.key === ' ' || e.key === 'Spacebar') {
+        spacePressed = false;
+    }
+}
+
+
+function drawBackGround() {
+    var background=new Image();
+    background.src='cartoon.jpg';;
+    ctx.beginPath();
+    ctx.drawImage(background,0,0,x,y);
+    ctx.closePath();
+  }
+
+  function drawBackGround2() {
+    var back=new Image();
+    back.src='Im.jpg';;
+    ctx2.beginPath();
+   
+    ctx2.drawImage(back,xcoorBackground--,0,back.width,y2);
+   
+    ctx2.closePath();
+  }
+
+
+  function drawCharacter()
+  {
+      var character=new Image();
+      character.src='2.png';
+      ctx.beginPath();
+      ctx.drawImage(character,xCharacter,yCharacter,90,40);
+      ctx.closePath();
+    
+  }
+
+  function drawTom()
+  {
+    var character=new Image();
+    character.src='oo.png';
+    ctx.beginPath();
+    ctx.drawImage(character,tomX,canvas2.height-100,140,105);
+    ctx.closePath();
+  }
+  function drawCheese()
+  {
+    var cheeseImg=new Image();
+    cheeseImg.src="b.png";
+    ctx.beginPath();
+    for(var x=0;x<coordinateCheese.length;x++)
+    {
+        if(coordinateCheese[x][0]<30)
+        {
+            coordinateCheese[x][0]=canvas2.width-40;
+        }
+        else
+        {
+         ctx.drawImage(cheeseImg,coordinateCheese[x][0],coordinateCheese[x][1],50,30);
+         coordinateCheese[x][0]-=20;
+        }
+        
+    }
+      ctx.closePath();
+  }
+
+  function drawCars()
+  {
+      var img1=new Image();
+      img1.src="900.png";
+      ctx.beginPath();
+      ctx.drawImage(img1,x2-140,y2-180,120,80);
+      ctx.closePath();
+  }
+
+  function collisionDetection() {
+      var hCharacter=60;
+      var wCharacter=110;
+      var hCheese=40;
+      var wCheese=50;
+      for(var i=0;i<coordinateCheese.length;i++)
+      {
+          //m=i;
+         if(yCharacter < coordinateCheese[i][1]+hCharacter && 
+            yCharacter > coordinateCheese[i][1]-(hCheese+10) 
+            && xCharacter < coordinateCheese[i][0] +(10) && 
+            xCharacter > coordinateCheese[i][0]-(wCheese+8)
+            )
+         {
+             /*d=false;
+             xCoordinateCheese.filter(ob => !d);*/
+             //yCoordinateCheese.filter(ob => !d);
+             //yCharacter*=-1;
+            // xCoordinateCheese.splice(i,1);
+            score++;
+             coordinateCheese.splice(i,1);
+            if(score>24 && xCharacter==x-50)
+            {
+                console.log("gg");
+            }
+             
+             /*if(score > 8 ) {
+                alert("YOU WIN, CONGRATS!");
+                document.location.reload();
+              }*/
+           // console.log(yCharacter +"   "+xCharacter +"  "+coordinateCheese[i][0]);
+         }
+      }
+   
+  }
+
+  function drawScore() {
+    ctx.font = "25px Arial";
+    ctx.fillStyle = "yellow";
+    ctx.fillText("Score: "+score, 8, 20);
+  }
+
+  
+
+  function draw() {
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
+   //ctx2.clearRect(0,0,canvas2.width,canvas2.height);
+   //drawBackGround();
+   drawCharacter();
+   drawCheese();
+   drawCars();
+   drawScore();
+   drawBackGround2();
+   drawTom();
+   if(xCharacter>=canvas.width-70)
+   {
+       //xCharacter=50;
+       //tomX=0;
+        window.location.reload();
+       
+       
+  }
+
+   if(spacePressed ==true)
+   {
+  
+        if(yCharacter<20)
+        {
+            yCharacter +=20;
+            tomY +=20;
+        }
+        else
+        {
+            yCharacter -=20;
+            tomY -=20;
+        }
+   }
+
+ 
+  if(spacePressed==false)
+  {
+    if(yCharacter >= y-80)
+    {
+        yCharacter =y-170;
+        //window.location.href="file:///C:/Users/Lapcom%20Store/Desktop/New%20folder/game2.html";
+    }
+        yCharacter +=20;
+        tomY +=20;
+     
+  }
+
+  if(xcoorBackground<-2879)
+  {
+      xcoorBackground=0;
+  }
+
+  
+
+   xCharacter +=5;
+   collisionDetection();
+   //console.log(xCharacter);
+   x2 -=3;
+
+   tomX+=5;
+
+
+  }
+
+        var interval=setInterval(draw,70);
+
+        
+
